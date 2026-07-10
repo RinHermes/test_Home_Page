@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Imo mama blue
+            })
+        </script>
+        <title>Mafia</title>
+    </head>
+    <body class="my-mafia-body">
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #111 !important; border-bottom: 0.5rem solid #BBFF12;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src=/images/1780735761832.png alt="My Logo" style="pointer-events: none; width: clamp(40px, 10vw, 4rem); aspect-ratio: 1 / 1; margin-left: clamp(1rem, calc(1rem + 2vw), 3rem);"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <img src=/images/1776859912008_transparent.gif alt="Menu" class="custom-toggler-img" style="width: clamp(40px, 10vw, 4rem); aspect-ratio: 1 / 1; margin-right: clamp(1rem, calc(1rem + 2vw), 3rem);">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto pixelate">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html" style="color: #F1F1FF !important;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="mafia.html" style="color: #BBFF12 !important;">Mafia</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="games.html" style="color: #F1F1FF !important;">Games</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="about.html" style="color: #F1F1FF !important;">About Me</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <h1 class="pixelate mafia-main">MaFia</h1>
+            <hr class="mafia-line">
+            <div class="mafia-container">
+                <button class="pixelate m-mafia" popovertarget="mafia"><img src=/images/mafia.png alt="Mafia"></button>
+                <div class="pixelate" id="mafia" popover>
+                    <p class="mafia-name">MAFIA:</p><div class="mafia-content"><img src=/images/mafia.png alt="Mafia"><p>Wakes up at night and chooses one person to kill</p></div>
+                </div>
+                <button class="pixelate m-mafia" popovertarget="sheriff"><img src=/images/sheriff.png alt="Sheriff"></button>
+                <div class="pixelate" id="sheriff" popover>
+                    <p class="mafia-name">SHERIFF:</p><div class="mafia-content"><img src=/images/sheriff.png alt="Sheriff"><p>Wakes up at night and chooses one person to investigate <br> (M) Mafia, (C) Non-mafia</p></div>
+                </div>
+                <button class="pixelate m-mafia" popovertarget="doctor"><img src=/images/doctor.png alt="Doctor"></button>
+                <div class="pixelate" id="doctor" popover>
+                    <p class="mafia-name">DOCTOR:</p><div class="mafia-content"><img src=/images/doctor.png alt="Doctor"><p>Wakes up at night and chooses one person to SAVE</p></div>
+                </div>
+                <button class="pixelate m-mafia" popovertarget="citizen"><img src=/images/c-male.png alt="Citizen"></button>
+                <div class="pixelate" id="citizen" popover>
+                    <p class="mafia-name">CITIZEN:</p><div class="mafia-content"><img src=/images/c-male.png alt="Citizen"><p>Observe and spot the mafia, survive 'till the end</p><img src=/images/c-female.png alt="Citizen"></div>
+                </div>
+                <button class="pixelate m-mafia" popovertarget="soon"><img src=/images/mafia-back.png alt="Coming Soon"></button>
+                <div class="pixelate" id="soon" popover>
+                    <div class="pixelate">RinHermes' artwork coming soon...</div>
+                    <hr>
+                    <div class="pixelate">More Content Coming Soon...</div>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+</html>

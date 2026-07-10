@@ -1,0 +1,4 @@
+HTML tags I used are: <p>, <div>, <footer>, <svg>, <a>, <section>, <main>, <img>, <h1>, <h2>, <ul>, <hr>
+CSS properties I used: color, background, font-size, font-family, display, margin, padding;
+
+I used JavaScript to make my games.html have playable games, and I used Bootstrap's carousel as a news section on my index.html

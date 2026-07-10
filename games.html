@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // Rock Paper Scissors Javascript
+                const Player = document.querySelector('.rps-player-screen img');
+                const Computer = document.querySelector('.rps-computer-screen img');
+                const choices = ['rock', 'paper', 'scissors'];
+                const playerScore = document.getElementById('player-score');
+                const computerScore = document.getElementById('computer-score');
+                const rpsStats = document.querySelector('.rps-stats');
+                const playerScreen = document.querySelector('.rps-player-screen');
+                const computerScreen = document.querySelector('.rps-computer-screen');
+                const playerPlay = document.querySelector('.rps-player');
+                const computerComp = document.querySelector('.rps-computer');
+                const choiceRock = document.getElementById('rps-rock');
+                const choicePaper = document.getElementById('rps-paper');
+                const choiceScissors = document.getElementById('rps-scissors');
+                const playerEmotion = document.querySelector('.rps-player-emotion img');
+                const computerEmotion = document.querySelector('.rps-computer-emotion img');
+
+                let rpsPlayable = 1;
+                let pScore = 0;
+                let cScore = 0;
+                let playerChoice;
+                let outcome;
+
+                document.addEventListener('click', function (event) {
+                    const validClick = event.target.closest('#rps-rock') || event.target.closest('#rps-paper') || event.target.closest('#rps-scissors');
+
+                    if (rpsPlayable === 1 && validClick) {
+                        rpsPlayable = 0;
+                        let randomIndex = Math.floor(Math.random() * choices.length);
+                        let computerChoice = choices[randomIndex];
+
+                        rpsStats.style.backgroundColor = '#121212';
+                        playerScreen.style.backgroundColor = '#121212';
+                        computerScreen.style.backgroundColor = '#121212';
+                        playerPlay.style.backgroundColor = '#121212';
+                        computerComp.style.backgroundColor = '#121212';
+                        Player.classList.add('shaking-hand');
+                        Player.src = "/images/rock.png";
+                        Computer.classList.add('computer-shaking-hand');
+                        Computer.src = "/images/rock.png";
+                        choiceRock.style.opacity = '0.5';
+                        choicePaper.style.opacity = '0.5';
+                        choiceScissors.style.opacity = '0.5';
+                        Player.classList.remove('player-wobble');
+                        Computer.classList.remove('comp-wobble');
+                        playerEmotion.src = "/images/think_rps.png";
+                        computerEmotion.src = "/images/think_rps.png";
+
+                        if (event.target.closest('#rps-rock')) {
+                            playerChoice = 'rock';
+                            setTimeout(function() {
+                                Player.src = "/images/rock.png";
+                                Player.classList.remove('shaking-hand');
+                            }, 1400);
+                        }
+                        else if (event.target.closest('#rps-paper')) {
+                            playerChoice = 'paper';
+                            setTimeout(function() {
+                                Player.src = "/images/paper.png";
+                                Player.classList.remove('shaking-hand');
+                            }, 1400);
+                        }
+                        else if (event.target.closest('#rps-scissors')) {
+                            playerChoice = 'scissors';
+                            setTimeout(function() {
+                                Player.src = "/images/scissors.png";
+                                Player.classList.remove('shaking-hand');
+                            }, 1400);
+                        }
+
+                        if (computerChoice === 'rock') {
+                            setTimeout(function() {
+                                Computer.src = "/images/rock.png";
+                                Computer.classList.remove('computer-shaking-hand');
+                            }, 1400);
+                        }
+                        else if (computerChoice === 'paper') {
+                            setTimeout(function() {
+                                Computer.src = "/images/paper.png";
+                                Computer.classList.remove('computer-shaking-hand');
+                            }, 1400);
+                        }
+                        else {
+                            setTimeout(function() {
+                                Computer.src = "/images/scissors.png";
+                                Computer.classList.remove('computer-shaking-hand');
+                            }, 1400);
+                        }
+
+                        if (playerChoice === 'rock') {
+                            if (computerChoice === 'paper') {
+                                outcome = 'lose';
+                            }
+                            else if (computerChoice === 'scissors') {
+                                outcome = 'win';
+                            }
+                            else {
+                                outcome = 'draw';
+                            }
+                        }
+                        else if (playerChoice === 'paper') {
+                            if (computerChoice === 'scissors') {
+                                outcome = 'lose';
+                            }
+                            else if (computerChoice === 'rock') {
+                                outcome = 'win';
+                            }
+                            else {
+                                outcome = 'draw';
+                            }
+                        }
+                        else {
+                            if (computerChoice === 'rock') {
+                                outcome = 'lose';
+                            }
+                            else if (computerChoice === 'paper') {
+                                outcome = 'win';
+                            }
+                            else {
+                                outcome = 'draw';
+                            }
+                        }
+
+                        setTimeout(function() {
+                            if (outcome === 'win') {
+                                pScore += 1;
+                                rpsStats.style.backgroundColor = '#00ff00';
+                                playerScreen.style.backgroundColor = '#00ff00';
+                                playerPlay.style.backgroundColor = '#00ff00';
+                                Player.classList.add('player-wobble');
+                                playerEmotion.src = "/images/won_rps.png";
+                                computerEmotion.src = "/images/lose_rps.png";
+                            }
+                            else if (outcome === 'lose') {
+                                cScore += 1;
+                                rpsStats.style.backgroundColor = '#ff0000';
+                                computerScreen.style.backgroundColor = '#ff0000';
+                                computerComp.style.backgroundColor = '#ff0000';
+                                Computer.classList.add('comp-wobble');
+                                playerEmotion.src = "/images/lose_rps.png";
+                                computerEmotion.src = "/images/won_rps.png";
+                            }
+                            else {
+                                rpsStats.style.backgroundColor = '#0000ff';
+                                playerScreen.style.backgroundColor = '#0000ff';
+                                computerScreen.style.backgroundColor = '#0000ff';
+                                playerPlay.style.backgroundColor = '#0000ff';
+                                computerComp.style.backgroundColor = '#0000ff';
+                                playerEmotion.src = "/images/draw_rps.png";
+                                computerEmotion.src = "/images/draw_rps.png";
+                            }
+                            playerScore.innerHTML = pScore;
+                            computerScore.innerHTML = cScore;
+                        }, 1700)
+
+                        setTimeout(function() {
+                            rpsPlayable = 1;
+                            choiceRock.style.opacity = '1';
+                            choicePaper.style.opacity = '1';
+                            choiceScissors.style.opacity = '1';
+                        }, 2100)
+                    }
+                });
+
+                // Clicker
+                const clickerClicks = document.querySelector('.clicker-clicks span');
+                const clickerPlayer = document.querySelector('.clicker-player-screen img');
+                const clickerShop1 = document.querySelector('.clicker-shop1 p button');
+                const clickerShop2 = document.querySelector('.clicker-shop2 p button');
+                let clicks = 0;
+                let clickRate = 1;
+                let shop1 = 100;
+                let shop2 = 500;
+                let autoClickRate = 0;
+                clickerShop1.innerHTML = shop1;
+                clickerShop2.innerHTML = shop2;
+
+                clickerPlayer.addEventListener('click', function () {
+                    clicks = Math.round((clicks + clickRate) * 100) / 100;
+                    clickerClicks.innerHTML = clicks;
+                    clickerClicks.classList.add('clicker-pump');
+                    setTimeout(function () {
+                        clickerClicks.classList.remove('clicker-pump');
+                    }, 500);
+                });
+
+                clickerShop1.addEventListener('click', function () {
+                    if (clicks >= shop1) {
+                        clicks = Math.round((clicks - shop1) * 100) / 100;
+                        clickRate += 1;
+                        shop1 = Math.round((shop1 * 1.3) * 100) / 100;
+                        clickerShop1.innerHTML = shop1;
+                        clickerClicks.innerHTML = clicks;
+                        clickerShop1.classList.add('clicker-affordable');
+                        setTimeout(function () {
+                            clickerShop1.classList.remove('clicker-affordable');
+                        }, 400);
+                    }
+                    else {
+                        clickerShop1.classList.add('clicker-expensive');
+                        setTimeout(function () {
+                            clickerShop1.classList.remove('clicker-expensive');
+                        }, 400);
+                    }
+                });
+
+                clickerShop2.addEventListener('click', function () {
+                    if (clicks >= shop2) {
+                        clicks = clicks - shop2;
+                        if (autoClickRate === 0) {autoClickRate += 1.01;}
+                        else {autoClickRate = Math.round((autoClickRate * 1.01) * 100) / 100;}
+                        shop2 = Math.round((shop2 * 1.3) * 100) / 100;
+                        clickerShop2.innerHTML = shop2;
+                        clickerClicks.innerHTML = Math.round(clicks * 100) / 100;
+                        clickerShop2.classList.add('clicker-affordable');
+                        setTimeout(function () {
+                            clickerShop2.classList.remove('clicker-affordable');
+                        }, 400);
+                    }
+                    else {
+                        clickerShop2.classList.add('clicker-expensive');
+                        setTimeout(function () {
+                            clickerShop2.classList.remove('clicker-expensive');
+                        }, 400);
+                    }
+                });
+
+                setInterval(() => {
+                    clicks += autoClickRate;
+                    clickerClicks.innerHTML = Math.round(clicks * 100) / 100;
+                }, 1000);
+
+                // Guessing Game
+                const guessCount = document.querySelector('.guessing-count p');
+                const guessSubmit = document.querySelector('.guessing-submit button');
+                const guessBox = document.querySelector('.guessing-box input');
+                const guessHighLow = document.querySelector('.guessing-high-low p');
+                const guess100 = document.querySelector('.guessing-100');
+                const TOTAL = 1000;
+                let count = 0;
+                let number = randNumber();
+
+                guessSubmit.addEventListener('click', function () {
+                    const guess = parseInt(guessBox.value);
+                    // console.log(number);
+                    if (guessSubmit.innerHTML === "SUBMIT") {
+                        if (guess === number) {
+                        guessHighLow.innerHTML = "CONGRATS";
+                        guessSubmit.innerHTML = "AGAIN?";
+                        count += 1;
+                        guessHighLow.classList.add('guessing-won');
+                        }
+                        else if (guess > number) {
+                            guessHighLow.innerHTML = "TOO HIGH";
+                            count += 1;
+                            guessCount.classList.add('guessing-wrong');
+                            guessHighLow.classList.add('guessing-hint-high');
+                            setTimeout (function () {
+                                guessCount.classList.remove('guessing-wrong');
+                                guessHighLow.classList.remove('guessing-hint-high');
+                            }, 500);
+                        }
+                        else if (guess < number) {
+                            guessHighLow.innerHTML = "TOO LOW";
+                            count += 1;
+                            guessCount.classList.add('guessing-wrong');
+                            guessHighLow.classList.add('guessing-hint-low');
+                            setTimeout (function () {
+                                guessCount.classList.remove('guessing-wrong');
+                                guessHighLow.classList.remove('guessing-hint-low');
+                            }, 500);
+                        }
+
+                        if (guess > 1000 || guess < 0) {
+                            guess100.classList.add('guessing-outofbound');
+                            setTimeout (function () {
+                                guess100.classList.remove('guessing-outofbound');
+                            }, 500);
+                        }
+
+                        guessCount.innerHTML = count;
+                    }
+                    else if (guessSubmit.innerHTML === "AGAIN?") {
+                        number = randNumber();
+                        guessSubmit.innerHTML = "SUBMIT";
+                        guessBox.value = "";
+                        guessHighLow.classList.remove('guessing-won');
+                        count = 0;
+                        guessCount.innerHTML = count;
+                    }
+                })
+
+                function randNumber() {
+                    return Math.floor(Math.random() * TOTAL)
+                };
+            })
+        </script>
+        <title>Games</title>
+    </head>
+    <body class="my-games-body">
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #111 !important; border-bottom: 0.5rem solid #BBFF12; min-height: 5rem;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="/images/1780735761832.png" alt="My Logo" style="pointer-events: none; height: 4rem; margin-left: clamp(1rem, calc(1rem + 2vw), 3rem);"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <img src=/images/1776859912008_transparent.gif alt="Menu" class="custom-toggler-img" style="width: clamp(40px, 10vw, 4rem); aspect-ratio: 1 / 1; margin-right: clamp(1rem, calc(1rem + 2vw), 3rem);">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto pixelate">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html" style="color: #F1F1FF !important;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="mafia.html" style="color: #F1F1FF !important;">Mafia</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="games.html" style="color: #BBFF12 !important;">Games</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="about.html" style="color: #F1F1FF !important;">About Me</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div id="rps" style="color: transparent;">Rock Paper Scissors</div>
+            <div class="rps-container">
+                <div class="rps-block-left-up" style="grid-area: game1-block1"></div>
+                <div class="rps-block-right-up" style="grid-area: game1-block2"></div>
+                <div class="rps-block-left-down" style="grid-area: game1-block5"></div>
+                <div class="rps-block-right-down" style="grid-area: game1-block6"></div>
+                <div class="pixelate rps-title" style="grid-area: game1-title">ROCK, PAPER, SCISSORS</div>
+                <div class="pixelate rps-player" style="grid-area: game1-play">PLAYER:</div>
+                <div class="pixelate rps-player-emotion" style="grid-area: game1-player-emotion"><img src="/images/think_rps.png" alt="player emotion"></div>
+                <div class="pixelate rps-player-screen" style="grid-area: game1-player"><img src="/images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-computer" style="grid-area: game1-comp">CPU:</div>
+                <div class="pixelate rps-stats" style="grid-area: game1-stats">SCORE:<p><span id="player-score">0</span><span>-</span><span id="computer-score">0</span></p></div>
+                <div class="pixelate rps-computer-screen" style="grid-area: game1-computer"><img src="/images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-computer-emotion" style="grid-area: game1-computer-emotion"><img src="/images/think_rps.png" alt="computer emotion"></div>
+                <div class="pixelate rps-item" id="rps-rock" style="grid-area: game1-rock"><img src="/images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-item" id="rps-paper" style="grid-area: game1-paper"><img src="/images/paper.png" alt="paper"></div>
+                <div class="pixelate rps-item" id="rps-scissors" style="grid-area: game1-scissors"><img src="/images/scissors.png" alt="paper"></div>
+            </div>
+            <div id="clicker" style="color: transparent;">Clicker</div>
+            <div class="clicker-container">
+                <div class="pixelate clicker-title" style="grid-area: game2-title">KKROWA CLICKER</div>
+                <div class="pixelate clicker-shop1" style="grid-area: game2-shop1">+1 CLICKS<p><button class="clicker-interactive">PRICE</button></p></div>
+                <div class="pixelate clicker-player-screen" style="grid-area: game2-player"><img src="/images/kkrowa_t_post.gif" alt="T Posing Kkrowa"></div>
+                <div class="pixelate clicker-shop2" style="grid-area: game2-shop2">AUTO<p><button class="clicker-interactive ">PRICE</button></p></div>
+                <div class="pixelate clicker-clicks" style="grid-area: game2-clicks">CLICKS: <span>0</span></div>
+            </div>
+            <div id="guessing" style="color: transparent;">Clicker</div>
+            <form class="guessing-container" onsubmit="return false;">
+                <div class="pixelate guessing-title" style="grid-area: game3-title">GUESS THE NUMBER</div>
+                <div class="pixelate guessing-100" style="grid-area: game3-100">Guess a number from 1-1000</div>
+                <div class="pixelate guessing-count" style="grid-area: game3-count">Attempts:<p>0</p></div>
+                <div class="pixelate guessing-box" style="grid-area: game3-box"><input type="number" placeholder="Guess..."></div>
+                <div class="pixelate guessing-high-low" style="grid-area: game3-high-low"><p>HIGH LOW</p></div>
+                <div class="pixelate guessing-submit" style="grid-area: game3-submit"><button>SUBMIT</button></div>
+            </form>
+        </main>
+        <footer class="game-navigation pixelate"><nav>
+            <ul>
+                <li><a href="#rps">RPS</a></li>
+                <li><a href="#clicker">Clicker</a></li>
+                <li><a href="#guessing">Guessing</a></li></ul>
+            </nav>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,1228 @@
+/* Homepage CSS */
+.my-homepage-body {
+    background: url('/images/background.png') #323232;
+    background-blend-mode: multiply;
+}
+
+.my-games-body {
+    background: url('/images/background.png') #121212;
+    background-blend-mode: multiply;
+}
+
+.my-mafia-body {
+    background: url('/images/background.png') #350616;
+    background-blend-mode: multiply;
+}
+
+.my-about-me-body {
+    background: url('/images/background.png') #121212;
+    background-blend-mode: multiply;
+}
+
+.pixelate {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.my-title {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    color: #BBFF12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.my-homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bobbing 1s ease-out infinite alternate;
+}
+
+.my-homepage img {
+    width: 100%;
+    max-width: 85rem;
+    height: auto;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    pointer-events: none;
+}
+
+@keyframes bobbing {
+    0% {
+        transform: translateY(1rem) scale(0.95);
+    }
+    100% {
+        transform: translateY(-0.01rem) scale(1);
+    }
+}
+
+.my-car {
+    width: 50rem;
+    height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.carousel {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.carousel-item {
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    transform: translateX(0.2rem) scale(1.1);
+    text-shadow: 0 0 6px #FFBB12;
+}
+
+.rin-news {
+    display: flex;
+    margin: 2rem;
+    color: #F1F1FF;
+    font-size: 5vw;
+    text-shadow: -0.2rem -0.2rem 0rem #0F5132;
+}
+
+
+/* Page transitions */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transtion-group(slide-pages) {
+    animation-duration: 1s
+    animation-timing-function: ease-in;
+}
+
+::view-transition-old(slide-pages) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(slide-pages) {
+    animation-name: slide-in;
+}
+
+main {
+    view-transition-name: slide-pages;
+}
+
+@keyframes slide-out {
+    to {
+        translate: -100vw;
+    }
+}
+
+@keyframes slide-in {
+    to {
+        translate: -100vw;
+    }
+}
+
+/* All Rock Paper Scissors CSS */
+.rps-container {
+    display: grid;
+    user-select: none;
+    height: 100vh;
+    padding: 4em 4em;
+    grid-template-columns: repeat(5, clamp(4rem, calc(5vw + 1.5rem), 8rem));
+    grid-template-rows: clamp(4rem, calc(5vw + 1.5rem), 8rem) clamp(1rem, calc(1vw + 1rem), 3rem) clamp(4rem, calc(5vw + 1.5rem), 8rem) clamp(4rem, calc(5vw + 1.5rem), 8rem);
+    justify-content: center;
+    grid-template-areas:
+    "game1-block1 game1-title game1-title game1-title game1-block2"
+    "game1-player-emotion game1-play game1-stats game1-comp game1-computer-emotion"
+    "game1-player-emotion game1-player game1-stats game1-computer game1-computer-emotion"
+    "game1-block5 game1-rock game1-paper game1-scissors game1-block6";
+}
+
+@media (max-width: 350px) {
+    .rps-container {
+        grid-template-columns: repeat(3, clamp(5rem, calc(7vw + 2rem), 9rem));
+        grid-template-rows: clamp(5rem, calc(7vw + 2rem), 9rem) clamp(1rem, calc(1vw + 1rem), 3rem) clamp(4rem, calc(7vw + 2rem), 8rem) clamp(2rem, calc(2vw + 0.5rem), 3rem) clamp(2rem, calc(2vw + 0.5rem), 3rem) clamp(4rem, calc(5vw + 1.5rem), 8rem);
+        justify-content: center;
+        grid-template-areas:
+            "game1-title game1-title game1-title"
+            "game1-play game1-stats game1-comp"
+            "game1-player-emotion game1-stats game1-computer-emotion"
+            "game1-player game1-stats game1-computer"
+            "game1-player game1-stats game1-computer"
+            "game1-rock game1-paper game1-scissors";
+    }
+}
+
+.rps-player-emotion {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-left: 0.5em solid #bbff12;
+}
+
+.rps-computer-emotion {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-right: 0.5em solid #bbff12;
+}
+
+@media (max-width: 350px) {
+    .rps-block-right-up, .rps-block-right-down, .rps-block-left-up, .rps-block-left-down {
+        display: none;
+        height: 0;
+        width: 0;
+        border: none;
+        position: absolute;
+    }
+    .rps-computer, .rps-computer-screen, .rps-computer-emotion {
+        border-right: 0.3rem solid #bbff12;
+    }
+    .rps-player, .rps-player-screen, .rps-player-emotion {
+        border-left: 0.3rem solid #bbff12;
+    }
+}
+
+.rps-block-right-up {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-right: 0.5em solid #bbff12;
+    border-top: 0.5em solid #bbff12;
+}
+
+.rps-block-left-up {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-left: 0.5em solid #bbff12;
+    border-top: 0.5em solid #bbff12;
+}
+
+.rps-block-right-down {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-right: 0.5em solid #bbff12;
+    border-bottom: 0.5em solid #bbff12;
+}
+
+.rps-block-left-down {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-left: 0.5em solid #bbff12;
+    border-bottom: 0.5em solid #bbff12;
+}
+
+.rps-title {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(1rem, calc(2vw + 0.1rem), 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.3em solid #bbff12;
+    margin: -0.2em 0;
+}
+
+.rps-player {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(0.3rem, calc(1vw + 0.4rem), 2rem);
+    padding: 0.3em 0;
+}
+
+
+.rps-player-screen {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(0.3rem, calc(1vw + 0.4rem), 2rem);
+    padding: 0.3em 0;
+}
+
+.rps-player-screen img {
+    transform: rotate(90deg);
+    height: clamp(1rem, calc(3vw + 2rem), 5rem);
+    border-radius: 200px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+.rps-computer {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(0.3rem, calc(1vw + 0.4rem), 2rem);
+    padding: 0.3em 0;
+}
+
+.rps-computer-screen {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 2rem);
+    padding: 0.3em 0;
+}
+
+.rps-computer-screen img {
+    transform: rotate(-90deg) scaleX(-1);
+    height: clamp(1rem, calc(3vw + 2rem), 5rem);
+    border-radius: 200px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+.rps-stats {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 2rem);
+    padding: 0.3em 0;
+}
+
+.rps-stats p {
+    font-size: clamp(0.95rem, calc(1vw + 0.95rem), 2.45rem);
+    padding: 0.6em 0;
+}
+
+.rps-item {
+    text-align: center;
+    background-color: #121212;
+    padding: 0.5em 0;
+    border-radius: 200px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    border-bottom: 0.5em solid #bbff12;
+}
+
+.rps-item img {
+    height: clamp(1rem, calc(3vw + 2rem), 5rem);
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+    border-radius: 200px;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+.rps-item img:hover {
+    transform: scale(1.2);
+}
+
+.shaking-hand {
+    animation: rpsShake 0.3s ease infinite alternate;
+}
+
+@keyframes rpsShake {
+    0% {
+        transform: rotate(20deg) scale(1);
+    }
+    100% {
+        transform: rotate(140deg) scale(1.2);
+    }
+}
+
+.computer-shaking-hand {
+    animation: rpsCompShake 0.3s ease infinite alternate;
+}
+
+@keyframes rpsCompShake {
+    0% {
+        transform: rotate(-20deg) scaleX(-1) scale(1);
+    }
+    100% {
+        transform: rotate(-140deg) scaleX(-1) scale(1.2);
+    }
+}
+
+.player-wobble {
+    animation: playWobble 0.7s ease infinite alternate;
+}
+
+@keyframes playWobble {
+    0% {
+        transform: scale(0.95) rotate(90deg);
+    }
+    100% {
+        transform: scale(1.3) rotate(90deg);
+    }
+}
+
+.comp-wobble {
+    animation: compWobble 0.7s ease infinite alternate;
+}
+
+@keyframes compWobble {
+    0% {
+        transform: scale(0.95) rotate(-90deg) scaleX(-1);
+    }
+    100% {
+        transform: scale(1.3) rotate(-90deg) scaleX(-1);
+    }
+}
+
+.rps-player-emotion img {
+    height: clamp(0.8rem, calc(3vw + 1.8rem), 4.6rem);
+}
+
+.rps-computer-emotion img {
+    height: clamp(0.8rem, calc(3vw + 1.8rem), 4.6rem);
+    transform: scaleX(-1);
+}
+
+/* All Clicker Game CSS */
+.clicker-container {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    padding: clamp(1em, calc(4vw + 1em), 14rem) 0;
+    display: grid;
+    grid-template-columns: repeat(3, clamp(7rem, calc(8vw + 2rem), 11rem));
+    grid-template-rows: clamp(7rem, calc(8vw + 2rem), 11rem) clamp(7rem, calc(8vw + 2rem), 11rem) clamp(2rem, calc(2vw + 0.5rem), 3rem);
+    height: 100vh;
+    justify-content: center;
+    grid-template-areas:
+        "game2-title game2-title game2-title"
+        "game2-shop1 game2-player game2-shop2"
+        "game2-clicks game2-clicks game2-clicks";
+}
+
+@media (max-width: 450px) {
+    .clicker-container {
+        grid-template-columns: repeat(2, clamp(8rem, calc(9vw + 2rem), 11rem));
+        grid-template-rows: clamp(8rem, calc(9vw + 2rem), 11rem) clamp(8rem, calc(9vw + 2rem), 11rem) clamp(2rem, calc(2vw + 0.5rem), 3rem);
+        justify-content: center;
+        grid-template-areas:
+            "game2-title game2-title"
+            "game2-player game2-clicks"
+            "game2-shop1 game2-shop2";
+    }
+    .clicker-shop1 {
+        border-bottom: 0.3rem solid blue;
+        border-left: 0.3rem solid blue;
+    }
+    .clicker-shop2 {
+        border-bottom: 0.3rem solid blue;
+        border-right: 0.3rem solid blue;
+    }
+    div.clicker-clicks {
+        border-right: 0.3rem solid blue;
+        border-left: 0;
+        border-bottom: 0;
+        border-top: 0;
+        flex-direction: column;
+    }
+    .clicker-player-screen {
+        border-left: 0.3rem solid blue;
+    }
+}
+
+.clicker-title {
+    background: transparent;
+    color: white;
+    font-size: clamp(1.7rem, calc(2vw + 1rem), 6rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: wobble 1s ease infinite alternate;
+    border: 0.3rem solid blue;
+}
+
+@keyframes wobble {
+    0% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+.clicker-shop1 {
+    background: transparent;
+    color: white;
+    font-size: clamp(0.7rem, calc(2vw + 0.07rem), 1.7rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 0.3rem solid blue;
+}
+
+.clicker-shop1 p button {
+    font-size: clamp(1rem, calc(2vw + 0.1rem), 2rem);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border-radius: 15px;
+}
+
+.clicker-player-screen {
+    background: transparent;
+    color: white;
+    font-size: clamp(0.5rem, calc(2vw + 0.1rem), 2rem);
+    display: flex;
+    transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clicker-player-screen:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 8px 16px rgba(225, 225, 225, 0.3));
+}
+
+.clicker-player-screen:active {
+    transform: scale(0.9);
+}
+
+.clicker-player-screen img {
+    height: clamp(5rem, 10vw + 5vh, 20rem);
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    animation: clickable 1.4s ease-in-out alternate infinite;
+    padding: 0 0 1.3rem 1rem;
+    z-index: -1;
+}
+
+@keyframes clickable {
+    0% {
+        transform: rotate(55deg);
+        z-index: -1;
+    }
+    100% {
+        transform: rotate(-50deg);
+        z-index: -1;
+    }
+}
+
+.clicker-shop2 {
+    background: transparent;
+    color: white;
+    font-size: clamp(0.7rem, calc(2vw + 0.07rem), 1.7rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.3rem solid blue;
+}
+
+.clicker-shop2 p button {
+    color: black;
+    font-size: clamp(1rem, calc(2vw + 0.1rem), 2rem);
+    border-radius: 15px;
+}
+
+.clicker-interactive {
+    font-size: clamp(0.7rem, calc(2vw + 0.07rem), 1.5rem);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 15px;
+}
+
+.clicker-interactive:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.clicker-expensive {
+    transition: border 0.2s ease, background-color 0.3s ease;
+    background-color: red;
+    color: white !important;
+}
+
+.clicker-affordable {
+    transition: border 0.2s ease, background-color 0.3s ease;
+    background-color: #12ffbb;
+    color: white !important;
+}
+
+.clicker-clicks {
+    background: transparent;
+    color: white;
+    font-size: clamp(1rem, calc(2vw + 0.1rem), 2rem);
+    padding: 0 0 0.rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    border-left: 0.3rem solid blue;
+    border-bottom: 0.3rem solid blue;
+    border-right: 0.3rem solid blue;
+}
+
+.clicker-pump {
+    animation: pump 0.75s ease;
+}
+
+@keyframes pump {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.3);
+        text-shadow: 0 2px 4px rgba(225, 225, 225, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 2px 4px rgba(225, 225, 225, 0.7);
+    }
+}
+
+/* Number Guessing Game */
+.guessing-container {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+    padding: clamp(1em, calc(4vw + 1em), 14rem) 0;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(3, clamp(4rem, calc(6vw + 2rem), 8rem));
+    grid-template-rows: clamp(4rem, calc(6vw + 2rem), 8rem) clamp(2rem, calc(3vw + 1rem), 4rem) clamp(2rem, calc(3vw + 1rem), 4rem) clamp(4rem, calc(6vw + 2rem), 8rem);
+    justify-content: center;
+    grid-template-areas:
+        "game3-title game3-title game3-title"
+        "game3-100 game3-100 game3-100"
+        "game3-box game3-box game3-submit"
+        "game3-count game3-count game3-high-low";
+}
+
+.guessing-title {
+    color: white;
+    font-size: clamp(0.5rem, calc(2vw + 0.7rem), 2rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: wobble 1s ease infinite alternate;
+    border: #FF8303 solid 5px;
+}
+
+.guessing-100 {
+    color: white;
+    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 1.5rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #FF8303 solid 5px;
+}
+
+.guessing-count {
+    color: white;
+    font-size: clamp(0.7rem, calc(1vw + 0.5rem), 1.7rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: #FF8303 solid 5px;
+    border-bottom: #FF8303 solid 5px;
+}
+
+.guessing-count p {
+    font-size: clamp(1.3rem, calc(2vw + 1.3rem), 2.2rem);
+}
+
+.guessing-box {
+    color: white;
+    font-size: clamp(0.7rem, calc(2vw + 0.1rem), 1.5rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: #FF8303 solid 5px;
+}
+
+.guessing-box input {
+    height: 2rem;
+    width: 7.7rem;
+    border: #FF8303 solid 2px;
+    border-radius: 10px;
+}
+
+.guessing-box input:focus {
+    border: #FF8303 solid 2px;
+    outline: none;
+    border-radius: 5px;
+    color: #FF8303;
+}
+
+.guessing-box input::placeholder {
+    color: #FF8303;
+    opacity: 0.6;
+}
+
+.guessing-high-low {
+    color: white;
+    font-size: clamp(0.7rem, calc(2vw + 0.1rem), 1.5rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #FF8303 solid 5px;
+}
+
+.guessing-submit {
+    color: white;
+    font-size: clamp(0.7rem, calc(2vw + 0.1rem), 1.5rem);
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: #FF8303 solid 5px;
+    border-right: #FF8303 solid 5px;
+}
+
+.guessing-submit button {
+    border-radius: 13px;
+    transition: transform 0.3s ease;
+    background-color: orange;
+    color: white;
+    border: none;
+}
+
+.guessing-submit button:hover {
+    transform: scale(1.1);
+    border: white solid 2px;
+}
+
+.guessing-submit button:active {
+    transform: scale(0.95);
+}
+
+.guessing-wrong {
+    animation: wrong 0.5s ease;
+}
+
+@keyframes wrong {
+    0% {
+        transform: translateX(-10px) scale(1.05);
+        color: red;
+    }
+    25% {
+        transform: translateX(10px) scale(1.05);
+        color: red;
+    }
+    50% {
+        transform: translateX(-10px) scale(1.05);
+        color: red;
+    }
+    100% {
+        transform: translateX(0);
+        color: red;
+    }
+}
+
+.guessing-hint-high {
+    animation: hint-high 0.5s ease;
+}
+
+@keyframes hint-high {
+    0% {
+        transform: translateY(10px) scale(1.1);
+        text-shadow: 2px 2px 5px orange;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        text-shadow: 2px 2px 5px orange;
+    }
+}
+
+.guessing-hint-low {
+    animation: hint-low 0.5s ease;
+}
+
+@keyframes hint-low {
+    0% {
+        transform: translateY(-10px) scale(1.1);
+        text-shadow: 2px 2px 5px orange;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        text-shadow: 2px 2px 5px orange;
+    }
+}
+
+.guessing-outofbound {
+    animation: outofbound 0.5s ease;
+}
+
+@keyframes outofbound {
+    0% {
+        transform: scale(1.1);
+        color: #FF8303;
+    }
+    25% {
+        transform: scale(1.1);
+        color: white;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #FF8303;
+    }
+    75% {
+        transform: scale(1.1);
+        color: white;
+    }
+    100% {
+        transform: scale(1.1);
+        color: #FF8303;
+    }
+}
+
+.guessing-won {
+    animation: guessed 0.5s ease alternate infinite;
+}
+
+@keyframes guessed {
+    0% {
+        transform: scale(1.2) rotate(70deg);
+        color: #c7ea46;
+    }
+    25% {
+        transform: scale(1.1) rotate(30deg);
+        color: #c7ea46;
+    }
+    50% {
+        transform: scale(1.02) rotate(0deg);
+        color: #c7ea46;
+    }
+    75% {
+        transform: scale(1.1) rotate(-30deg);
+        color: #c7ea46;
+    }
+    100% {
+        transform: scale(1.2) rotate(-70deg);
+        color: #c7ea46;
+    }
+}
+
+/* Game Navigation */
+.game-navigation {
+    width: 100%;
+    color: #f2f2f2;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background: #121212;
+}
+
+.game-navigation ul {
+    list-style: none;
+}
+
+.game-navigation ul li {
+    display: inline-block;
+    margin-inline: 1em;
+}
+
+.game-navigation ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.game-navigation ul li:hover {
+    transition: transform 0.2s ease;
+    transform: scale(1.2);
+}
+
+.game-navigation ul li a:hover {
+    color: #bbff12;
+}
+
+/* Mafia */
+.mafia-container {
+    display: flex;
+    padding: 1.5rem 0 1rem;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.m-mafia {
+    -webkit-user-drag: none;
+    user-select: none;
+    font-size: 2rem;
+    background: none;
+    border: transparent;
+    transition: transform 0.3s ease;
+}
+
+.m-mafia img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.m-mafia:hover {
+    transform: scale(1.1);
+}
+
+#mafia:popover-open {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    width: 35vw;
+}
+
+.mafia-name {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.mafia-content {
+    font-size: 2rem;
+    display: flex;
+    color: white;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#mafia::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+#sheriff:popover-open {
+    border-radius: 13px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    width: 35vw;
+}
+
+#sheriff::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+#doctor:popover-open {
+    border-radius: 13px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    width: 35vw;
+}
+
+#doctor::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+#citizen:popover-open {
+    border-radius: 13px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    width: 40vw;
+}
+
+#citizen::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+#soon:popover-open {
+    border-radius: 13px;
+    display: flex;
+    font-size: 3rem;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    width: 35vw;
+}
+
+#soon::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.mafia-main {
+    text-align: center;
+    font-size: 5rem;
+    color: #f2f2f2;
+    margin: 1rem 0;
+    animation: glitch 3s 4s linear infinite;
+}
+
+@keyframes glitch {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+    }
+    19%, 24%, 55% {
+        opacity: 0.2;
+        filter: drop-shadow(0 0 0px transparent);
+    }
+    20%, 21%, 54%, 56% {
+        opacity: 0;
+    }
+}
+
+.mafia-line {
+    border-bottom: #f2f2f2 solid 0.2rem;
+    opacity: 1;
+}
+
+/* About Me */
+
+.aboutme-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+.aboutme-big {
+    color: #bbff12;
+    font-size: clamp(2rem, calc(1.5vw + 1.5rem), 3.5rem);
+    text-align: center;
+}
+
+.aboutme-medium {
+    color: #bbff12;
+    font-size: clamp(1.35rem, calc(1vw + 1rem), 2rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.aboutme-img {
+    width: 80vw;
+    max-width: 320px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.aboutme-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aboutme-text {
+    color: #f2f2f2;
+    font-size: clamp(1rem, calc(0.5vw + 1rem), 1.25rem);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.aboutme-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.aboutme-findme {
+    color: #bbff12;
+    opacity: 0.7;
+    font-size: clamp(0.7rem, calc(1vw + 1rem), 1.2rem);
+    text-align: center;
+}
+
+.aboutme-find {
+    display: flex;
+    gap: 20px;
+}
+
+.aboutme-find a {
+    position: relative;
+    background-color: white;
+    padding: 1em;
+    border-radius: 30%;
+    display: grid;
+    place-items: center;
+    transition: 0.2s ease;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.aboutme-find a svg {
+    height: 32px;
+    width: 32px;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.aboutme-find a::before {
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    transform: translateY(-30px) rotate(25deg);
+    opacity: 0;
+    white-space: nowrap;
+    transition: 0.2s ease;
+    z-index: 10;
+}
+
+.aboutme-find a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+    z-index: 10;
+}
+
+.aboutme-find a:hover {
+    background-color: var(--accent-color);
+}
+
+.aboutme-find a:hover svg {
+    fill: white;
+}
+
+.aboutme-find a:hover::before {
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+}
+
+.aboutme-find a:hover::after {
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+}
+
+.aboutme-small {
+    color: #f2f2f2;
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+@media (min-width: 730px) {
+    .aboutme-container {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "content img"
+            "footer footer";
+        gap: 3rem;
+        align-items: center;
+        -webkit-user-drag: none;
+        user-drag: none;
+        user-select: none;
+    }
+
+    .aboutme-content {
+        grid-area: content;
+        align-items: flex-start;
+    }
+
+    .aboutme-findme {
+        padding-top: 1rem;
+    }
+
+    .aboutme-big, .aboutme-medium, .aboutme-text {
+        text-align: left;
+    }
+
+    .aboutme-social {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .aboutme-img {
+        grid-area: img;
+        width: 30vw;
+        max-width: 400px;
+        -webkit-user-drag: none;
+        user-select: none;
+    }
+
+    .aboutme-small {
+        grid-area: footer;
+    }
+}
