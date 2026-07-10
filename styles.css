@@ -1,21 +1,21 @@
 /* Homepage CSS */
 .my-homepage-body {
-    background: url('/images/background.png') #323232;
+    background: url('./images/background.png') #323232;
     background-blend-mode: multiply;
 }
 
 .my-games-body {
-    background: url('/images/background.png') #121212;
+    background: url('./images/background.png') #121212;
     background-blend-mode: multiply;
 }
 
 .my-mafia-body {
-    background: url('/images/background.png') #350616;
+    background: url('./images/background.png') #350616;
     background-blend-mode: multiply;
 }
 
 .my-about-me-body {
-    background: url('/images/background.png') #121212;
+    background: url('./images/background.png') #121212;
     background-blend-mode: multiply;
 }
 
