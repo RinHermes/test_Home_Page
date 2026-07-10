@@ -48,54 +48,54 @@
                         playerPlay.style.backgroundColor = '#121212';
                         computerComp.style.backgroundColor = '#121212';
                         Player.classList.add('shaking-hand');
-                        Player.src = "/images/rock.png";
+                        Player.src = "./images/rock.png";
                         Computer.classList.add('computer-shaking-hand');
-                        Computer.src = "/images/rock.png";
+                        Computer.src = "./images/rock.png";
                         choiceRock.style.opacity = '0.5';
                         choicePaper.style.opacity = '0.5';
                         choiceScissors.style.opacity = '0.5';
                         Player.classList.remove('player-wobble');
                         Computer.classList.remove('comp-wobble');
-                        playerEmotion.src = "/images/think_rps.png";
-                        computerEmotion.src = "/images/think_rps.png";
+                        playerEmotion.src = "./images/think_rps.png";
+                        computerEmotion.src = "./images/think_rps.png";
 
                         if (event.target.closest('#rps-rock')) {
                             playerChoice = 'rock';
                             setTimeout(function() {
-                                Player.src = "/images/rock.png";
+                                Player.src = "./images/rock.png";
                                 Player.classList.remove('shaking-hand');
                             }, 1400);
                         }
                         else if (event.target.closest('#rps-paper')) {
                             playerChoice = 'paper';
                             setTimeout(function() {
-                                Player.src = "/images/paper.png";
+                                Player.src = "./images/paper.png";
                                 Player.classList.remove('shaking-hand');
                             }, 1400);
                         }
                         else if (event.target.closest('#rps-scissors')) {
                             playerChoice = 'scissors';
                             setTimeout(function() {
-                                Player.src = "/images/scissors.png";
+                                Player.src = "./images/scissors.png";
                                 Player.classList.remove('shaking-hand');
                             }, 1400);
                         }
 
                         if (computerChoice === 'rock') {
                             setTimeout(function() {
-                                Computer.src = "/images/rock.png";
+                                Computer.src = "./images/rock.png";
                                 Computer.classList.remove('computer-shaking-hand');
                             }, 1400);
                         }
                         else if (computerChoice === 'paper') {
                             setTimeout(function() {
-                                Computer.src = "/images/paper.png";
+                                Computer.src = "./images/paper.png";
                                 Computer.classList.remove('computer-shaking-hand');
                             }, 1400);
                         }
                         else {
                             setTimeout(function() {
-                                Computer.src = "/images/scissors.png";
+                                Computer.src = "./images/scissors.png";
                                 Computer.classList.remove('computer-shaking-hand');
                             }, 1400);
                         }
@@ -141,8 +141,8 @@
                                 playerScreen.style.backgroundColor = '#00ff00';
                                 playerPlay.style.backgroundColor = '#00ff00';
                                 Player.classList.add('player-wobble');
-                                playerEmotion.src = "/images/won_rps.png";
-                                computerEmotion.src = "/images/lose_rps.png";
+                                playerEmotion.src = "./images/won_rps.png";
+                                computerEmotion.src = "./images/lose_rps.png";
                             }
                             else if (outcome === 'lose') {
                                 cScore += 1;
@@ -150,8 +150,8 @@
                                 computerScreen.style.backgroundColor = '#ff0000';
                                 computerComp.style.backgroundColor = '#ff0000';
                                 Computer.classList.add('comp-wobble');
-                                playerEmotion.src = "/images/lose_rps.png";
-                                computerEmotion.src = "/images/won_rps.png";
+                                playerEmotion.src = "./images/lose_rps.png";
+                                computerEmotion.src = "./images/won_rps.png";
                             }
                             else {
                                 rpsStats.style.backgroundColor = '#0000ff';
@@ -159,8 +159,8 @@
                                 computerScreen.style.backgroundColor = '#0000ff';
                                 playerPlay.style.backgroundColor = '#0000ff';
                                 computerComp.style.backgroundColor = '#0000ff';
-                                playerEmotion.src = "/images/draw_rps.png";
-                                computerEmotion.src = "/images/draw_rps.png";
+                                playerEmotion.src = "./images/draw_rps.png";
+                                computerEmotion.src = "./images/draw_rps.png";
                             }
                             playerScore.innerHTML = pScore;
                             computerScore.innerHTML = cScore;
@@ -313,9 +313,9 @@
     <body class="my-games-body">
         <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #111 !important; border-bottom: 0.5rem solid #BBFF12; min-height: 5rem;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="/images/1780735761832.png" alt="My Logo" style="pointer-events: none; height: 4rem; margin-left: clamp(1rem, calc(1rem + 2vw), 3rem);"></a>
+                <a class="navbar-brand" href="index.html"><img src="./images/1780735761832.png" alt="My Logo" style="pointer-events: none; height: 4rem; margin-left: clamp(1rem, calc(1rem + 2vw), 3rem);"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <img src=/images/1776859912008_transparent.gif alt="Menu" class="custom-toggler-img" style="width: clamp(40px, 10vw, 4rem); aspect-ratio: 1 / 1; margin-right: clamp(1rem, calc(1rem + 2vw), 3rem);">
+                <img src=./images/1776859912008_transparent.gif alt="Menu" class="custom-toggler-img" style="width: clamp(40px, 10vw, 4rem); aspect-ratio: 1 / 1; margin-right: clamp(1rem, calc(1rem + 2vw), 3rem);">
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto pixelate">
@@ -344,21 +344,21 @@
                 <div class="rps-block-right-down" style="grid-area: game1-block6"></div>
                 <div class="pixelate rps-title" style="grid-area: game1-title">ROCK, PAPER, SCISSORS</div>
                 <div class="pixelate rps-player" style="grid-area: game1-play">PLAYER:</div>
-                <div class="pixelate rps-player-emotion" style="grid-area: game1-player-emotion"><img src="/images/think_rps.png" alt="player emotion"></div>
-                <div class="pixelate rps-player-screen" style="grid-area: game1-player"><img src="/images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-player-emotion" style="grid-area: game1-player-emotion"><img src="./images/think_rps.png" alt="player emotion"></div>
+                <div class="pixelate rps-player-screen" style="grid-area: game1-player"><img src="./images/rock.png" alt="paper"></div>
                 <div class="pixelate rps-computer" style="grid-area: game1-comp">CPU:</div>
                 <div class="pixelate rps-stats" style="grid-area: game1-stats">SCORE:<p><span id="player-score">0</span><span>-</span><span id="computer-score">0</span></p></div>
-                <div class="pixelate rps-computer-screen" style="grid-area: game1-computer"><img src="/images/rock.png" alt="paper"></div>
-                <div class="pixelate rps-computer-emotion" style="grid-area: game1-computer-emotion"><img src="/images/think_rps.png" alt="computer emotion"></div>
-                <div class="pixelate rps-item" id="rps-rock" style="grid-area: game1-rock"><img src="/images/rock.png" alt="paper"></div>
-                <div class="pixelate rps-item" id="rps-paper" style="grid-area: game1-paper"><img src="/images/paper.png" alt="paper"></div>
-                <div class="pixelate rps-item" id="rps-scissors" style="grid-area: game1-scissors"><img src="/images/scissors.png" alt="paper"></div>
+                <div class="pixelate rps-computer-screen" style="grid-area: game1-computer"><img src="./images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-computer-emotion" style="grid-area: game1-computer-emotion"><img src="./images/think_rps.png" alt="computer emotion"></div>
+                <div class="pixelate rps-item" id="rps-rock" style="grid-area: game1-rock"><img src="./images/rock.png" alt="paper"></div>
+                <div class="pixelate rps-item" id="rps-paper" style="grid-area: game1-paper"><img src="./images/paper.png" alt="paper"></div>
+                <div class="pixelate rps-item" id="rps-scissors" style="grid-area: game1-scissors"><img src="./images/scissors.png" alt="paper"></div>
             </div>
             <div id="clicker" style="color: transparent;">Clicker</div>
             <div class="clicker-container">
                 <div class="pixelate clicker-title" style="grid-area: game2-title">KKROWA CLICKER</div>
                 <div class="pixelate clicker-shop1" style="grid-area: game2-shop1">+1 CLICKS<p><button class="clicker-interactive">PRICE</button></p></div>
-                <div class="pixelate clicker-player-screen" style="grid-area: game2-player"><img src="/images/kkrowa_t_post.gif" alt="T Posing Kkrowa"></div>
+                <div class="pixelate clicker-player-screen" style="grid-area: game2-player"><img src="./images/kkrowa_t_post.gif" alt="T Posing Kkrowa"></div>
                 <div class="pixelate clicker-shop2" style="grid-area: game2-shop2">AUTO<p><button class="clicker-interactive ">PRICE</button></p></div>
                 <div class="pixelate clicker-clicks" style="grid-area: game2-clicks">CLICKS: <span>0</span></div>
             </div>
