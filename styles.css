@@ -531,7 +531,7 @@ main {
 }
 
 .clicker-player-screen img {
-    height: clamp(5rem, 10vw + 5vh, 20rem);
+    height: clamp(10rem, 10vw + 5vh, 20rem);
     -webkit-user-drag: none;
     user-drag: none;
     user-select: none;
