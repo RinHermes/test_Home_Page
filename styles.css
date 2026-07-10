@@ -923,6 +923,7 @@ main {
 }
 
 #mafia:popover-open {
+    border-radius: 13px;
     display: flex;
     color: white;
     flex-direction: column;
@@ -1009,7 +1010,6 @@ main {
 #soon:popover-open {
     border-radius: 13px;
     display: flex;
-    font-size: 3rem;
     color: white;
     flex-direction: column;
     background-color: #121212;
